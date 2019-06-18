@@ -1,418 +1,419 @@
 name: Student
 description: ''
-sql: students.sql
 pagination_enabled: true
 aggregation_enabled: false
 key: NREC
-sql_params: []
+sql: students.sql
 params:
-- name: baza
-  type: string
-  operation: exact
-  condition: UStudent.F$WARCH = %s
-  required: false
-  description: ''
-  default: ''
-  example: ''
-- name: status
-  type: string
-  operation: exact
-  condition: UStudent.F$WARCH = %s
-  required: false
-  description: ''
-  default: ''
-  example: ''
-- name: id
-  type: string
-  operation: custom
-  condition: UStudent.f$nrec = convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,'%s'))
-  required: false
-  description: ''
-  default: ''
-  example: ''
-- name: date
-  type: string
-  operation: custom
-  condition: ' UStudent.F$APPDATE>=[dbo].ToAtlDate(CONVERT(date, ''%s'' ,103)) and
-    UStudent.F$DisDATE<=[dbo].ToAtlDate(CONVERT(date, ''%s'' , 103)) '
-  required: false
-  description: ''
-  default: ''
-  example: ''
+  - name: baza
+    type: string
+    operation: exact
+    condition: UStudent.F$WARCH = %s
+    required: false
+    description: ''
+    default: ''
+    example: ''
+  - name: status
+    type: string
+    operation: exact
+    condition: UStudent.F$WARCH = %s
+    required: false
+    description: ''
+    default: ''
+    example: ''
+  - name: id
+    type: string
+    operation: custom
+    condition: >-
+      UStudent.f$nrec =
+      convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,'%s'))
+    required: false
+    description: ''
+    default: ''
+    example: ''
+  - name: date
+    type: string
+    operation: custom
+    condition: ' UStudent.F$APPDATE>=[dbo].ToAtlDate(CONVERT(date, ''%s'' ,103)) and UStudent.F$DisDATE<=[dbo].ToAtlDate(CONVERT(date, ''%s'' , 103)) '
+    required: false
+    description: ''
+    default: ''
+    example: ''
+sql_params: []
 schema:
   type: object
-  name: ''
+  name: null
   description: ''
   fields:
     NREC:
       type: string
       db_name: NREC
-      description: ''
       example: ''
+      description: ''
     PERSNREC:
       type: string
       db_name: Persnrec
-      description: ''
       example: ''
+      description: ''
     UID:
       type: string
       db_name: UID
-      description: ''
       example: ''
+      description: ''
     FullName:
       type: string
       db_name: FullName
-      description: ''
       example: ''
+      description: ''
     Status:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: Status_ID
-          description: ''
           example: ''
+          description: ''
         IDS:
           type: string
           db_name: Status_IDS
-          description: ''
           example: ''
+          description: ''
         Status:
           type: string
           db_name: STATUS
-          description: ''
           example: ''
+          description: ''
     Baza:
       type: string
       db_name: baza
-      description: ''
       example: ''
+      description: ''
     Department:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: Department_ID
-          description: ''
           example: ''
+          description: ''
         IDS:
           type: string
           db_name: Department_IDS
-          description: ''
           example: ''
+          description: ''
         SHORT:
           type: string
           db_name: Department_Short
-          description: ''
           example: ''
+          description: ''
         Department:
           type: string
           db_name: Department
-          description: ''
           example: ''
+          description: ''
     EduDirection:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: EduDirection_ID
-          description: ''
           example: ''
+          description: ''
         CODE:
           type: string
           db_name: EduDirection_CODE
-          description: ''
           example: ''
+          description: ''
         EduDirection:
           type: string
           db_name: EduDirection
-          description: ''
           example: ''
+          description: ''
     EduProfile:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: EduProfile_ID
-          description: ''
           example: ''
+          description: ''
         EduProfile:
           type: string
           db_name: EduProfile
-          description: ''
           example: ''
+          description: ''
     EduQual:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: EduQual_ID
-          description: ''
           example: ''
+          description: ''
         EduQual:
           type: string
           db_name: EduQual
-          description: ''
           example: ''
+          description: ''
     EduLevel:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: EduLevel_ID
-          description: ''
           example: ''
+          description: ''
         EduLevel:
           type: string
           db_name: EduLevel
-          description: ''
           example: ''
+          description: ''
     StudyForm:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: StudyForm_ID
-          description: ''
           example: ''
+          description: ''
         StudyForm:
           type: string
           db_name: StudyForm
-          description: ''
           example: ''
+          description: ''
     Year:
       type: string
       db_name: StYear
-      description: ''
       example: ''
+      description: ''
     AppDate:
       type: string
       db_name: AppDate
-      description: ''
       example: ''
+      description: ''
     AdmissionYear:
       type: string
       db_name: AdmissionYear
-      description: ''
       example: ''
+      description: ''
     Group:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: Group_ID
-          description: ''
           example: ''
+          description: ''
         Group:
           type: string
           db_name: Group_Name
-          description: ''
           example: ''
+          description: ''
     SubGroup:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: SubGroup_ID
-          description: ''
           example: ''
+          description: ''
         SubGroup:
           type: string
           db_name: SubGroup
-          description: ''
           example: ''
+          description: ''
     DisDate:
       type: string
       db_name: DisDate
-      description: ''
       example: ''
+      description: ''
     ADMISSIONBUPNREC:
       type: string
       db_name: ADMISSIONBUPNREC
-      description: ''
       example: ''
+      description: ''
     ADMISSIONRUPNREC:
       type: string
       db_name: ADMISSIONRUPNREC
-      description: ''
       example: ''
+      description: ''
     BUPNREC:
       type: string
       db_name: BUPNREC
-      description: ''
       example: ''
+      description: ''
     RUPNREC:
       type: string
       db_name: RUPNREC
-      description: ''
       example: ''
+      description: ''
     RUPS:
       type: select
+      description: ''
       endpoint: StudentRup
       params:
         id: ID
-      description: ''
     Borndate:
       type: string
       db_name: Borndate
-      description: ''
       example: ''
+      description: ''
     Sex:
       type: string
       db_name: Sex
-      description: ''
       example: ''
+      description: ''
     Localiz:
       type: string
       db_name: Localiz
-      description: ''
       example: ''
+      description: ''
     Gr:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: Gr_ID
-          description: ''
           example: ''
+          description: ''
         Gr:
           type: string
           db_name: Gr
-          description: ''
           example: ''
+          description: ''
     FIN:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         ID:
           type: string
           db_name: FIN_ID
-          description: ''
           example: ''
+          description: ''
         FIN:
           type: string
           db_name: FIN
-          description: ''
           example: ''
+          description: ''
     IsFromOtherVuz:
       type: string
       db_name: IsFromOtherVuz
-      description: ''
       example: ''
+      description: ''
     IsCP:
       type: string
       db_name: IsCp
-      description: ''
       example: ''
+      description: ''
     Person:
       type: object
-      name: ''
+      name: null
       description: ''
       fields:
         LastName:
           type: string
           db_name: LastName
-          description: ''
           example: ''
+          description: ''
         FirstName:
           type: string
           db_name: FirstName
-          description: ''
           example: ''
+          description: ''
         PatrName:
           type: string
           db_name: PatrName
-          description: ''
           example: ''
+          description: ''
         IdentityDoc:
           type: object
-          name: ''
+          name: null
           description: ''
           fields:
             ID:
               type: string
               db_name: Passp_Id
-              description: ''
               example: ''
+              description: ''
             IdentityDoc:
               type: string
               db_name: IdentityDoc
-              description: ''
               example: ''
+              description: ''
         DocSerie:
           type: string
           db_name: DocSerie
-          description: ''
           example: ''
+          description: ''
         DocNumber:
           type: string
           db_name: DocNumber
-          description: ''
           example: ''
+          description: ''
         DocDate:
           type: string
           db_name: DocDate
-          description: ''
           example: ''
+          description: ''
         DocOrg:
           type: string
           db_name: DocOrg
-          description: ''
           example: ''
+          description: ''
         BirthPlace:
           type: string
           db_name: BirthPlace
-          description: ''
           example: ''
+          description: ''
         Phone:
           type: string
           db_name: phone
-          description: ''
           example: ''
+          description: ''
         Email:
           type: string
           db_name: email
-          description: ''
           example: ''
+          description: ''
         Photo:
           type: string
           db_name: IsCp
-          description: ''
           example: ''
+          description: ''
         IsPersonalDataAgreement:
           type: string
           db_name: IsPersonalDataAgreement
-          description: ''
           example: ''
+          description: ''
         Addresses:
           type: select
+          description: ''
           endpoint: StudentAddress
           params:
             id: ID
-          description: ''
     Modified:
       type: string
       db_name: Modified
-      description: ''
       example: ''
+      description: ''

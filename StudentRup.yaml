@@ -1,29 +1,29 @@
 name: StudentRup
 description: ''
-sql: students_rup.sql
 pagination_enabled: true
 aggregation_enabled: false
 key: RUPNREC
-sql_params:
-- name: id
-  type: string
-  position: 0
-  description: ''
-  default: ''
-  example: ''
+sql: students_rup.sql
 params: []
+sql_params:
+  - name: id
+    type: string
+    position: 0
+    description: ''
+    default: ''
+    example: ''
 schema:
   type: object
-  name: ''
+  name: null
   description: ''
   fields:
     NREC:
       type: string
       db_name: RUPNREC
-      description: ''
       example: ''
+      description: ''
     Year:
       type: string
       db_name: RYear
-      description: ''
       example: ''
+      description: ''
