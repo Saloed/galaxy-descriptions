@@ -1,0 +1,259 @@
+name: TeacherLoad
+description: ''
+pagination_enabled: true
+aggregation_enabled: true
+key: OneCId
+sql: teacher_load.sql
+params:
+  - name: personId
+    operation: custom
+    required: false
+    type: string
+    condition: >-
+      Persons.F$NREC =
+      convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,'%s'
+      ))
+    default: ''
+    description: ''
+    example: ''
+  - name: year
+    operation: custom
+    required: false
+    type: string
+    condition: LoadPersons.F$wyeared = %s
+    default: ''
+    description: ''
+    example: ''
+  - name: tabnum
+    operation: custom
+    required: false
+    type: string
+    condition: Persons.F$strtabn = '%s'
+    default: ''
+    description: ''
+    example: ''
+sql_params: []
+schema:
+  type: object
+  name: null
+  description: ''
+  fields:
+    FIO:
+      type: string
+      db_name: Person_FIO
+      example: ''
+      description: ''
+    tabnum:
+      type: string
+      db_name: OneCId
+      example: ''
+      description: ''
+    PositionId:
+      type: string
+      db_name: Person_PositionID
+      example: ''
+      description: ''
+    DepartmentId:
+      type: string
+      db_name: Person_DepartmentId
+      example: ''
+      description: ''
+    Year:
+      type: string
+      db_name: Person_Year
+      example: ''
+      description: ''
+    Load:
+      type: object
+      name: Load
+      description: ''
+      fields:
+        ID:
+          type: string
+          db_name: Load_ID
+          example: ''
+          description: ''
+        Min:
+          type: string
+          db_name: Load_Min
+          example: ''
+          description: ''
+        Max:
+          type: string
+          db_name: Load_Max
+          example: ''
+          description: ''
+        Plan:
+          type: string
+          db_name: load_plan
+          example: ''
+          description: ''
+        Fact:
+          type: string
+          db_name: load_fact
+          example: ''
+          description: ''
+        AudMin:
+          type: string
+          db_name: load_AudMin
+          example: ''
+          description: ''
+        AudMax:
+          type: string
+          db_name: load_AudMax
+          example: ''
+          description: ''
+        AudLoad:
+          type: string
+          db_name: load_AudLoad
+          example: ''
+          description: ''
+        Rate:
+          type: string
+          db_name: load_Rate
+          example: ''
+          description: ''
+        StaffLoad:
+          type: string
+          db_name: load_StaffLoad
+          example: ''
+          description: ''
+        Shift:
+          type: string
+          db_name: load_Shift
+          example: ''
+          description: ''
+        LoadRows:
+          type: object
+          name: LoadRow
+          description: ''
+          fields:
+            ID:
+              type: string
+              db_name: loadRow_id
+              example: ''
+              description: ''
+            Subject:
+              type: object
+              name: null
+              description: ''
+              fields:
+                ID:
+                  type: string
+                  db_name: Subject_id
+                  example: ''
+                  description: ''
+                Name:
+                  type: string
+                  db_name: Subject_Name
+                  example: ''
+                  description: ''
+            Course:
+              type: string
+              db_name: Course
+              example: ''
+              description: ''
+            Semester:
+              type: string
+              db_name: Semester
+              example: ''
+              description: ''
+            JobType:
+              type: object
+              name: null
+              description: ''
+              fields:
+                ID:
+                  type: string
+                  db_name: JobType_id
+                  example: ''
+                  description: ''
+                Name:
+                  type: string
+                  db_name: JobType_Name
+                  example: ''
+                  description: ''
+            Kontingent:
+              type: object
+              name: null
+              description: ''
+              fields:
+                ID:
+                  type: string
+                  db_name: Kontingent_id
+                  example: ''
+                  description: ''
+                Name:
+                  type: string
+                  db_name: Kontingent_KontName
+                  example: ''
+                  description: ''
+                Count:
+                  type: string
+                  db_name: Kontingent_Count
+                  example: ''
+                  description: ''
+                StudentsCount:
+                  type: string
+                  db_name: Kontingent_StudentsCount
+                  example: ''
+                  description: ''
+            Volume:
+              type: object
+              name: null
+              description: ''
+              fields:
+                Value:
+                  type: string
+                  db_name: Volume_Value
+                  example: ''
+                  description: ''
+                ZET:
+                  type: string
+                  db_name: Volume_Zet
+                  example: ''
+                  description: ''
+            LoadValue:
+              type: object
+              name: null
+              description: ''
+              fields:
+                Value:
+                  type: string
+                  db_name: LoadValue_Value
+                  example: ''
+                  description: ''
+                Fact:
+                  type: string
+                  db_name: LoadValue_Fact
+                  example: ''
+                  description: ''
+                ZET:
+                  type: string
+                  db_name: LoadValue_Zet
+                  example: ''
+                  description: ''
+            Rate:
+              type: string
+              db_name: Rate
+              example: ''
+              description: ''
+            Groups:
+              type: object
+              name: Group
+              description: ''
+              fields:
+                ID:
+                  type: string
+                  db_name: Group_id
+                  example: ''
+                  description: ''
+                Name:
+                  type: string
+                  db_name: Group_Name
+                  example: ''
+                  description: ''
+              many: true
+              aggregation_field: loadRow_id
+          many: true
+          aggregation_field: OneCId
