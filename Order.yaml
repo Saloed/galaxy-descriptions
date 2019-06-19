@@ -1,0 +1,157 @@
+name: Order
+description: ''
+pagination_enabled: true
+aggregation_enabled: true
+key: ID
+sql: orders.sql
+params:
+  - name: id
+    operation: custom
+    required: false
+    type: string
+    condition: >-
+      t$TitleDoc.f$Nrec=convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,'%s'))
+    default: ''
+    description: ''
+    example: ''
+  - name: rpd
+    operation: custom
+    required: false
+    type: string
+    condition: t$ContDoc.F$TYPEOPER = %s
+    default: ''
+    description: ''
+    example: ''
+  - name: student
+    operation: custom
+    required: false
+    type: string
+    condition: >-
+      UStudent.f$nrec=convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,
+      %s))
+    default: ''
+    description: ''
+    example: ''
+  - name: StudentId
+    operation: custom
+    required: false
+    type: string
+    condition: >-
+      UStudent.f$nrec=convert(binary(8),convert(bigInt,0x8000000000000000)+convert(bigint,
+      %s))
+    default: ''
+    description: ''
+    example: ''
+  - name: date
+    operation: custom
+    required: false
+    type: string
+    condition: |-
+      t$TitleDoc.f$DocDate>=[dbo].ToAtlDate(CONVERT(date,  '%s' ,103))
+      and t$TitleDoc.f$DocDate <=[dbo].ToAtlDate(CONVERT(date, '%s' ,103))
+    default: ''
+    description: ''
+    example: ''
+sql_params: []
+schema:
+  type: object
+  name: null
+  description: ''
+  fields:
+    ID:
+      type: string
+      db_name: ID
+      example: ''
+      description: ''
+    Number:
+      type: string
+      db_name: number
+      example: ''
+      description: ''
+    Date:
+      type: string
+      db_name: Date
+      example: ''
+      description: ''
+    actions:
+      type: object
+      name: Action
+      description: ''
+      fields:
+        ID:
+          type: string
+          db_name: action_ID
+          example: ''
+          description: ''
+        TYPE:
+          type: string
+          db_name: action_Type
+          example: ''
+          description: ''
+        date_ras:
+          type: string
+          db_name: date_ras
+          example: ''
+          description: ''
+        FromDate:
+          type: string
+          db_name: FromDate
+          example: ''
+          description: ''
+        ToDate:
+          type: string
+          db_name: ToDate
+          example: ''
+          description: ''
+        FromBUP:
+          type: string
+          db_name: FromBUP
+          example: ''
+          description: ''
+        ToBUP:
+          type: string
+          db_name: ToBUP
+          example: ''
+          description: ''
+        FromRUP:
+          type: string
+          db_name: FromRUP
+          example: ''
+          description: ''
+        ToRUP:
+          type: string
+          db_name: ToRUP
+          example: ''
+          description: ''
+        USLPER:
+          type: string
+          db_name: USLPER
+          example: ''
+          description: ''
+        student_UID:
+          type: string
+          db_name: student_UID
+          example: ''
+          description: ''
+        NREC:
+          type: string
+          db_name: NREC
+          example: ''
+          description: ''
+        TYPENAME:
+          type: string
+          db_name: action_TypeName
+          example: ''
+          description: ''
+        REASON:
+          type: string
+          db_name: action_reason
+          example: ''
+          description: ''
+        REASONNAME:
+          type: string
+          db_name: action_reasonName
+          example: ''
+          description: ''
+      many: true
+      aggregation_field: action_ID
