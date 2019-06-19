@@ -254,6 +254,6 @@ schema:
                   example: ''
                   description: ''
               many: true
-              aggregation_field: loadRow_id
+              aggregation_field: Group_id
           many: true
-          aggregation_field: OneCId
+          aggregation_field: loadRow_id
