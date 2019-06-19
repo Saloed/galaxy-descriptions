@@ -154,4 +154,3 @@ schema:
           example: ''
           description: ''
       many: true
-      aggregation_field: action_ID
